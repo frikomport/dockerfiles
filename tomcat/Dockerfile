@@ -38,13 +38,16 @@ RUN set -x \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz*
 
-#ADD mengdetrening.xml $CATALINA_HOME/conf/Catalina/localhost/
-
 ADD ojdbc6.jar $CATALINA_HOME/lib/
 ADD jta.jar $CATALINA_HOME/lib/
+ADD commons-logging-1.2.jar $CATALINA_HOME/lib/
 
 RUN mkdir -p /data/mengdetrening/logs
 RUN mkdir -p /data/mengdetrening/conf
+ADD ApplicationResources_no_NO_FKPSVV.properties /data/mengdetrening/conf/
+
+ENV FRIKOMPORT_VARIANT FKPSVV
+ENV JAVA_OPTS "-Dldap.webservice.void=true $JAVA_OPTS"
 
 VOLUME [ "/usr/local/tomcat", "/data" ]
 
