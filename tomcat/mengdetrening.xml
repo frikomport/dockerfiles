@@ -1,0 +1,20 @@
+<Context path="/mengdetrening" docBase="mengdetrening" debug="99" reloadable="true"
+    antiJARLocking="true" antiResourceLocking="false">
+
+    <Resource name="jdbc/soakdb" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              driverClassName="oracle.jdbc.OracleDriver"
+              username="mengdetrening" password="mengdetrening" 
+              url="jdbc:oracle:thin:@oracle:1521:xe"
+              defaultAutoCommit="true" removeAbandoned="true" 
+              removeAbandonedTimeout="60" logAbandoned="true"/>
+              
+    <!-- eZ resource -->
+    <Resource name="jdbc/ezdb" auth="Container" type="javax.sql.DataSource"
+    	maxActive="100" maxIdle="30" maxWait="10000" 
+    	username="frikom" password="frikom" 
+    	driverClassName="com.mysql.jdbc.Driver" defaultAutoCommit="true" 
+    	url="jdbc:mysql://localhost/frikom_ezdb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8" removeAbandoned="true" 
+    	removeAbandonedTimeout="60" logAbandoned="true"/>
+    	
+</Context>
