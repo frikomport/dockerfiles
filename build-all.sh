@@ -3,3 +3,4 @@
 (cd ant && ./build.sh)
 (cd tomcat && ./build.sh)
 (cd oracle && ./build.sh)
+(cd smtp && ./build.sh)
