@@ -46,8 +46,11 @@ RUN mkdir -p /data/mengdetrening/logs
 RUN mkdir -p /data/mengdetrening/conf
 ADD ApplicationResources_no_NO_FKPSVV.properties /data/mengdetrening/conf/
 
+# Add a user named tomcat with the manager-gui role
+RUN sed -i 's|</tomcat-users>|<role rolename="manager-gui"/>\n<user username="tomcat" password="s3cret" roles="manager-gui"/>\n</tomcat-users>|g' conf/tomcat-users.xml
+
 ENV FRIKOMPORT_VARIANT FKPSVV
-ENV JAVA_OPTS "-Dldap.webservice.void=true $JAVA_OPTS"
+ENV JAVA_OPTS -Dldap.webservice.void=true $JAVA_OPTS
 
 VOLUME [ "/usr/local/tomcat", "/data" ]
 
