@@ -3,7 +3,7 @@
 FROM frikomport/java
 MAINTAINER henrik.hedlund@knowit.no
 
-ENV ANT_VERSION 1.9.4
+ENV ANT_VERSION 1.9.5
 
 # Install Ant
 RUN cd && \
